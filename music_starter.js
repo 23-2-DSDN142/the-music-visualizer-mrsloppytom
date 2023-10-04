@@ -1,7 +1,7 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(230, 171, 53)
+  background(104, 142, 204)
 
 // noStroke()
 // var vocalSize = map(vocal, 0, 100, 0, height/2 )
@@ -58,12 +58,61 @@ endShape()
 
 
 
+
+
+
+
 if(song.currentTime() > 26) {                  //when counter hits 27 seconds, circle appears (vocals)
   noStroke()
   var vocalSize = map(vocal, 0, 100, 0, height/2 )
   fill(235, 234, 209)
   circle(width/2, height/2, vocalSize)
 }
+
+noStroke()
+  var drumSize = map(drum, 0, 100, 0, height )
+  fill(235, 234, 209)
+  circle(100, 100, drumSize)
+
+  circle(1820, 100, drumSize)
+
+  circle(1820, 980, drumSize)
+
+  circle(100, 980, drumSize)
+
+// fill(63, 153, 171)
+// rect(0, 630, 1920, 450)
+
+// fill(63, 153, 171)
+// rect(0, 0, 1920, 450)
+
+
+// quad(600, 0,
+//    1300, 0,
+//     1000, 450,
+//      960, 450)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log(song.currentTime())
 
