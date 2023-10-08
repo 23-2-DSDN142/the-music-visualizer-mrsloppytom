@@ -69,16 +69,16 @@ if(song.currentTime() > 26) {                  //when counter hits 27 seconds, c
   circle(width/2, height/2, vocalSize)
 }
 
-noStroke()
-  var drumSize = map(drum, 0, 100, 0, height )
-  fill(235, 234, 209)
-  circle(100, 100, drumSize)
+// noStroke()
+//   var drumSize = map(drum, 0, 100, 0, height )
+//   fill(235, 234, 209)
+//   circle(100, 100, drumSize)
 
-  circle(1820, 100, drumSize)
+//   circle(1820, 100, drumSize)
 
-  circle(1820, 980, drumSize)
+//   circle(1820, 980, drumSize)
 
-  circle(100, 980, drumSize)
+//   circle(100, 980, drumSize)
 
 // fill(63, 153, 171)
 // rect(0, 630, 1920, 450)
@@ -99,7 +99,6 @@ var drumSize = map(drum, 0, 100, 0, height)
 angleMode(DEGREES)
 rectMode(CENTER)
 
-background(104, 142, 204)
 noFill()
 stroke(255)
 
@@ -114,6 +113,51 @@ rect(0, 0, 600 - i * 3, drumSize, drumSize*2)
 
 pop()
 }
+
+
+var bassSize = map(bass, 0, 100, 0, height)
+angleMode(DEGREES)
+rectMode(CENTER)
+
+noFill()
+stroke(199, 36, 24)
+
+
+for (var i = 0; i < 200; i++){
+push()
+
+rotate(tan(frameCount + i *5) * 1)
+
+rect(0, 0, 2000 - i * 3, bassSize*2, bassSize*2)
+
+pop()
+}
+
+
+
+
+if(song.currentTime() > 26) {                  //when counter hits 27 seconds, circle appears (vocals)
+  
+  var vocalSize = map(vocal, 0, 100, 0, height)
+angleMode(DEGREES)
+rectMode(CENTER)
+
+noFill()
+stroke(0)
+
+
+
+for (var i = 0; i < 200; i++){
+push()
+
+rotate(sin(frameCount + i *2) * 10)
+
+circle(0, 0, vocalSize/2* i )
+
+pop()
+}
+}
+
 
 
 
