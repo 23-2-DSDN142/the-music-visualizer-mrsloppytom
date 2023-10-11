@@ -1,17 +1,20 @@
 firstRun = true
-let testImg;
 
+
+let trees = [];
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(104, 142, 204)
 
-  // if(firstRun){
-  // testImg = loadImage('test.png')
-  // firstRun = false
-  // }
+  if(firstRun){
+    trees.push(loadImage('tree_1.png'));
+    trees.push(loadImage('tree_2.png'));
 
-  // image(testImg, 960, 300)
+    firstRun = false
+    }
+  
+ 
 
 // noStroke()
 // var vocalSize = map(vocal, 0, 100, 0, height/2 )
@@ -225,6 +228,14 @@ quad(-100, 150,
   1920, 750,
   -2200, 1080);
 
+
+
+  var OtherFrame = int(map(other, 0, 100, 0, 2.5));
+  console.log(OtherFrame);
+  push();
+  scale(1.1);
+  image(trees[OtherFrame], -850, 50);
+  pop();
 
   
 if(song.currentTime() > 25.6) {                  //when counter hits 27 seconds, circle appears (vocals)
