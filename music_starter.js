@@ -1,7 +1,16 @@
+firstRun = true
+let testImg;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(104, 142, 204)
+
+  if(firstRun){
+  testImg = loadImage('test.png')
+  firstRun = false
+  }
+
+  image(testImg, 960, 300)
 
 // noStroke()
 // var vocalSize = map(vocal, 0, 100, 0, height/2 )
@@ -115,20 +124,23 @@ pop()
 }
 
 
-var bassSize = map(bass, 0, 100, 0, height)
+var bassSize = map(bass, 0, 100, 0, height/10)
 angleMode(DEGREES)
 rectMode(CENTER)
 
 noFill()
 stroke(199, 36, 24)
 
+if(song.currentTime() < 114 && song.currentTime() > 146) {  
+rotate(bass*4)
+}
 
 for (var i = 0; i < 200; i++){
 push()
 
 rotate(tan(frameCount + i *5) * 1)
 
-rect(0, 0, 2000 - i * 3, bassSize*2, bassSize*2)
+rect(0, 0, 2000 - i * 10, bassSize*6, bassSize/2)
 
 pop()
 }
@@ -136,14 +148,15 @@ pop()
 
 
 
-if(song.currentTime() > 26) {                  //when counter hits 27 seconds, circle appears (vocals)
+if(song.currentTime() > 25.6) {                  //when counter hits 27 seconds, circle appears (vocals)
   
   var vocalSize = map(vocal, 0, 100, 0, height)
 angleMode(DEGREES)
 rectMode(CENTER)
 
 noFill()
-stroke(0)
+strokeWeight(3)
+stroke(255)
 
 
 
@@ -162,6 +175,26 @@ pop()
 
 
 
+// var otherSize = map(other, 0, 100, 0, height)
+// angleMode(DEGREES)
+// rectMode(CENTER)
+
+// noFill()
+// stroke(110, 235, 103)
+
+// if(song.currentTime() < 114 && song.currentTime() > 146) {  
+// rotate(other*4)
+// }
+
+// for (var i = 0; i < 200; i++){
+// push()
+
+// rotate(tan(frameCount + i *5) * 1)
+
+// rect(0, 0, 2000 - i *10, otherSize*6, otherSize/2)
+
+// pop()
+// }
 
 
 
