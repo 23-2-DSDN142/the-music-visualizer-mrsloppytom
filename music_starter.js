@@ -6,12 +6,12 @@ let testImg;
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(104, 142, 204)
 
-  if(firstRun){
-  testImg = loadImage('test.png')
-  firstRun = false
-  }
+  // if(firstRun){
+  // testImg = loadImage('test.png')
+  // firstRun = false
+  // }
 
-  image(testImg, 960, 300)
+  // image(testImg, 960, 300)
 
 // noStroke()
 // var vocalSize = map(vocal, 0, 100, 0, height/2 )
@@ -125,25 +125,40 @@ pop()
 }
 
 
-var bassSize = map(bass, 0, 100, 0, height/10)
+var bassSize = map(bass, 0, 100, 0, height/2)
 angleMode(DEGREES)
 rectMode(CENTER)
 
 noFill()
 stroke(199, 36, 24)
 
+for (var i = 0; i < 200; i++){
+push()
 
+rotate(tan(frameCount + i *5) * 1)
+rotate(90)
+rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
 
+pop()
+}
+
+var bassSize = map(bass, 0, 100, 0, height/2)
+angleMode(DEGREES)
+rectMode(CENTER)
+
+noFill()
+stroke(199, 36, 24)
 
 for (var i = 0; i < 200; i++){
 push()
 
 rotate(tan(frameCount + i *5) * 1)
-rotate(bass*4)
-rect(0, 0, 2000 - i * 10, bassSize*100, bassSize*4)
+
+rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
 
 pop()
 }
+
 
 
 
