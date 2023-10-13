@@ -107,25 +107,9 @@ if(song.currentTime() > 26) {                  //when counter hits 27 seconds, c
 
 
 
-
-var drumSize = map(drum, 0, 100, 0, height)
-angleMode(DEGREES)
-rectMode(CENTER)
-
-noFill()
-stroke(255)
-
 translate(width/2, height /2);
 
-for (var i = 0; i < 200; i++){
-push()
 
-rotate(sin(frameCount + i *2) * 100)
-
-rect(0, 0, 600 - i * 3, drumSize, drumSize*2)
-
-pop()
-}
 
 
 var bassSize = map(bass, 0, 100, 0, height/2)
@@ -147,7 +131,7 @@ pop()
 
 var bassSize = map(bass, 0, 100, 0, height/2)
 angleMode(DEGREES)
-rectMode(CENTER)
+
 
 noFill()
 stroke(199, 36, 24)
@@ -164,6 +148,22 @@ pop()
 
 
 
+//drum - spooky circle
+var drumSize = map(drum, 0, 100, 0, height);
+angleMode(DEGREES);
+
+noFill();
+stroke(255);
+
+for (var i = 0; i < 200; i++){
+push();
+
+rotate(sin(frameCount + i *2) * 100);
+
+rect(0, 0, 600 - i * 3, drumSize, drumSize*2);
+
+pop();
+}
 
 
 
@@ -194,35 +194,46 @@ pop()
 noStroke()
 fill(0)
 beginShape();
-vertex(200, 100);
-vertex(300, -10);
-vertex(400, -20);
-vertex(500, -40);
-vertex(600, -80);
-vertex(700, -100);
-vertex(800, -150)
-vertex(900, -200);
-vertex(1000, -100)
-vertex(1100, 750);
-vertex(100, 150);
+  vertex(200, 100);
+  vertex(300, -10);
+  vertex(400, -20);
+  vertex(500, -40);
+  vertex(600, -80);
+  vertex(700, -100);
+  vertex(800, -150)
+  vertex(900, -200);
+  vertex(1000, -100)
+  vertex(1100, 750);
+  vertex(100, 150);
 endShape(CLOSE);
 
 //left mountain
 beginShape();
-vertex(-100, 150);
-vertex(-2200, 1080);
-vertex(-2200, -200);
-vertex(-1000, -200);
-vertex(-800, -200)
-vertex(-700, -150)
-vertex(-600, -100)
-vertex(-500, -10)
-vertex(-400, -30)
-vertex(-300, 50)
-vertex(-200, 80);
+  vertex(-100, 150);
+  vertex(-2200, 1080);
+  vertex(-2200, -200);
+  vertex(-1000, -200);
+  vertex(-800, -200)
+  vertex(-700, -150)
+  vertex(-600, -100)
+  vertex(-500, -10)
+  vertex(-400, -30)
+  vertex(-300, 50)
+  vertex(-200, 80);
 endShape(CLOSE)
-fill(240)
 
+
+//pathway in center
+
+
+let from = color(240);
+let to = color(0);
+let time1 = (song.currentTime() > 10 );
+let time2 = (song.currentTime() < 50);
+let pct = map(song.currentTime(), time1, time2, 0, 1);
+let c = lerpColor(from, to, pct);
+
+fill(c);
 quad(-100, 150,
   100, 150,
   1920, 750,
@@ -230,35 +241,35 @@ quad(-100, 150,
 
 
 
-  var OtherFrame = int(map(other, 0, 100, 0, 2.5));
-  console.log(OtherFrame);
-  push();
-  scale(1.1);
-  image(trees[OtherFrame], -850, 50);
-  pop();
+ //image sequence: trees
+var OtherFrame = int(map(other, 0, 100, 0, 2));
+console.log(OtherFrame);
+push();
+scale(1);
+image(trees[OtherFrame], -960, -540);
+pop();
 
-  
-if(song.currentTime() > 25.6) {                  //when counter hits 27 seconds, circle appears (vocals)
+
+//when counter hits 27 seconds, circle appears (vocals)
+if(song.currentTime() > 25.6) {  
   
   var vocalSize = map(vocal, 0, 100, 0, height)
-angleMode(DEGREES)
-rectMode(CENTER)
+  angleMode(DEGREES)
 
-noFill()
-strokeWeight(3)
-stroke(255)
-
+  noFill()
+  strokeWeight(3)
+  stroke(255)
 
 
-for (var i = 0; i < 200; i++){
-push()
+  for (var i = 0; i < 200; i++){
+  push()
 
-rotate(sin(frameCount + i *2) * 10)
+  rotate(sin(frameCount + i *2) * 10)
 
-circle(0, 0, vocalSize/2* i )
+  circle(0, 0, vocalSize/2* i )
 
-pop()
-}
+  pop()
+  }
 }
 
 
