@@ -191,8 +191,19 @@ pop();
 // }
 
 //right mountain
+
+
+
+let mountC = 0
+
+if(song.currentTime() >82){
+  push();
+  mountC = 240;
+  pop();
+}
+
+fill(mountC);
 noStroke()
-fill(0)
 beginShape();
   vertex(200, 100);
   vertex(300, -10);
@@ -206,6 +217,7 @@ beginShape();
   vertex(1100, 750);
   vertex(100, 150);
 endShape(CLOSE);
+
 
 //left mountain
 beginShape();
@@ -222,27 +234,40 @@ beginShape();
   vertex(-200, 80);
 endShape(CLOSE)
 
+// if(song.currentTime()>5) {
+//   push()
+//   mountC = 240;
+//   pop()
+// }
+
+
+
 
 //pathway in center
 
+let pathC= 240
 
-let from = color(240);
-let to = color(0);
-let time1 = (song.currentTime() > 10 );
-let time2 = (song.currentTime() < 50);
-let pct = map(song.currentTime(), time1, time2, 0, 1);
-let c = lerpColor(from, to, pct);
+if(song.currentTime() > 82){
+  push();
+  pathC = 0;
+  pop();
+}
 
-fill(c);
+fill(pathC);
 quad(-100, 150,
   100, 150,
   1920, 750,
   -2200, 1080);
 
 
+  
+
+ 
+
+
 
  //image sequence: trees
-var OtherFrame = int(map(other, 0, 100, 0, 2));
+var OtherFrame = int(map(vocal, 0, 100, 0, 2));
 console.log(OtherFrame);
 push();
 scale(1);
