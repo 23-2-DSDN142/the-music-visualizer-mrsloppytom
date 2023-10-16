@@ -7,9 +7,14 @@ let trees = [];
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(104, 142, 204)
 
+  if (song.currentTime() >82){
+   background(199, 36, 24)
+  }
+
   if(firstRun){
     trees.push(loadImage('tree_1.png'));
     trees.push(loadImage('tree_2.png'));
+    trees.push(loadImage('tree_3.png'));
 
     firstRun = false
     }
@@ -117,7 +122,14 @@ angleMode(DEGREES)
 rectMode(CENTER)
 
 noFill()
-stroke(199, 36, 24)
+stroke(41, 177, 214) //light blue
+
+if(song.currentTime() >82){
+  stroke(1, 5, 13)
+}
+if(song.currentTime()> 114){
+  stroke(199, 36, 24)
+}
 
 for (var i = 0; i < 200; i++){
 push()
@@ -133,8 +145,15 @@ var bassSize = map(bass, 0, 100, 0, height/2)
 angleMode(DEGREES)
 
 
-noFill()
-stroke(199, 36, 24)
+
+stroke(41, 177, 214) //light blue
+
+if(song.currentTime() >82 ){ 
+  stroke(1, 5, 13)
+}
+if(song.currentTime()> 114){ //once chorus starts, switch to red
+  stroke(199, 36, 24)
+}
 
 for (var i = 0; i < 200; i++){
 push()
@@ -267,7 +286,7 @@ quad(-100, 150,
 
 
  //image sequence: trees
-var OtherFrame = int(map(vocal, 0, 100, 0, 2));
+var OtherFrame = int(map(vocal, 0, 100, 0, 3));
 console.log(OtherFrame);
 push();
 scale(1);
