@@ -10,6 +10,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   if (song.currentTime() >82){
    background(199, 36, 24)
   }
+  if (song.currentTime() >114){
+    background(104, 142, 204)
+   }
 
   if(firstRun){
     trees.push(loadImage('tree_1.png'));
@@ -220,6 +223,12 @@ if(song.currentTime() >82){
   mountC = 240;
   pop();
 }
+if(song.currentTime() >114){
+    push();
+    mountC = 0;
+    pop();
+  }
+
 
 fill(mountC);
 noStroke()
@@ -269,6 +278,11 @@ let pathC= 240
 if(song.currentTime() > 82){
   push();
   pathC = 0;
+  pop();
+}
+if(song.currentTime() >114){
+  push();
+  pathC = 240;
   pop();
 }
 
