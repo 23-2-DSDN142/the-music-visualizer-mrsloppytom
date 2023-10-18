@@ -299,7 +299,7 @@ if(song.currentTime()>159 && song.currentTime()<162
 }
 
 
-//sine wave that represents bass turns off and on
+//sine wave that represents instruments turns off and on
 if(song.currentTime()>146 && song.currentTime()<159
 || song.currentTime()>162 && song.currentTime()<165.2
 || song.currentTime()>168.5 && song.currentTime()<171.5
@@ -323,12 +323,12 @@ if(song.currentTime()>146 && song.currentTime()<159
   pop()
   }
   
-
-
   //BASS SHAPE
   noFill()
   stroke(199, 36, 24)
   strokeWeight(3)
+
+  rotate(90)
 
   let bassWave = map(bass, 0, 100, 20, 250);
   
@@ -361,10 +361,8 @@ endShape()
 }
 
 
-
+//UPSIDE DOWN VERSION OF PREVIOUS SECTION
 if (song.currentTime()>184.5  ){
-
-
 
 rotate(180)
 
@@ -374,6 +372,7 @@ angleMode(DEGREES);
 
 noFill();
 stroke(255);
+strokeWeight(3);
 
 for (var i = 0; i < 200; i++){
 push();
