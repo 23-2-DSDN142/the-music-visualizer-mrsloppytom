@@ -1,6 +1,7 @@
 firstRun = true
 
-let circleX = -1080
+let circleY = -480
+var circleXArray = [-900, -700, -500, -300, -100, 100, 300, 500, 700, 900 ];
 let trees = [];
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -33,16 +34,6 @@ text(words, width/2, height/3);
 
 
 
-// let drumMap = map(drum, 0, 100, 5, 70);
-// let lengthofLine = 300;
-// let LineStart = 100;
-// let lineEnd = LineStart + lengthofLine;
-// stroke(drumMap, 80, 80);
-
-// for(let i = 1; i<= drumMap; i++){
-//   let lineStep = i*20;
-//   rect(LineStart, lineStep, lineEnd, lineStep);
-// }
 
 noFill()
 let vocWave = map(vocal, 0, 100, 20, 250);
@@ -281,16 +272,37 @@ if(song.currentTime() > 25.6) {
   }
 }
 
-if(song.currentTime()>10){
+// if(song.currentTime()>10){
 noStroke()
 var otherSize = map(other, 0, 100, 0, height )
   fill(235, 234, 209);
-  circle(circleX, -500, otherSize/5);
-circleX = circleX +10;
+  circle(circleXArray[0], circleY, otherSize/5);
+  circle(circleXArray[1], circleY, otherSize/5);
+  circle(circleXArray[2], circleY, otherSize/5);
+  circle(circleXArray[3], circleY, otherSize/5);
+  circle(circleXArray[4], circleY, otherSize/5);
+  circle(circleXArray[5], circleY, otherSize/5);
+  circle(circleXArray[6], circleY, otherSize/5);
+  circle(circleXArray[7], circleY, otherSize/5);
+  circle(circleXArray[8], circleY, otherSize/5);
+  circle(circleXArray[9], circleY, otherSize/5);
 
-if(circleX > 1080){
-  circleX = -1080
+  circleY = circleY +1
+  if(circleY>480){
+    circleY= -480
   }
+
+
+
+  let drumMap = map(drum, 0, 100, 5, 70);
+let lengthofLine = 300;
+let LineStart = 100;
+let lineEnd = LineStart + lengthofLine;
+stroke(drumMap, 80, 80);
+
+for(let i = 1; i<= drumMap; i++){
+  let lineStep = i*20;
+  circle(LineStart, lineStep, lineEnd, lineStep);
 }
 
 
