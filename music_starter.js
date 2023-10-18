@@ -135,30 +135,7 @@ pop();
 
 
 
-
-// var otherSize = map(other, 0, 100, 0, height)
-// angleMode(DEGREES)
-// rectMode(CENTER)
-
-// noFill()
-// stroke(110, 235, 103)
-
-// if(song.currentTime() < 114 && song.currentTime() > 146) {  
-// rotate(other*4)
-// }
-
-// for (var i = 0; i < 200; i++){
-// push()
-
-// rotate(tan(frameCount + i *5) * 1)
-
-// rect(0, 0, 2000 - i *10, otherSize*6, otherSize/2)
-
-// pop()
-// }
-
-
-let mountC = 0
+let mountC = 0;
 
 if(song.currentTime() >82){
   push();
@@ -205,17 +182,7 @@ beginShape();
   vertex(-200, 80);
 endShape(CLOSE)
 
-// if(song.currentTime()>5) {
-//   push()
-//   mountC = 240;
-//   pop()
-// }
-
-
-
-
 //pathway in center
-
 let pathC= 240
 
 if(song.currentTime() > 82){
@@ -287,12 +254,6 @@ var otherSize = map(other, 0, 100, 0, height )
   circle(circleXArray[8], circleY, otherSize/5);
   circle(circleXArray[9], circleY, otherSize/5);
 
-  circleY = circleY +1
-  if(circleY>480){
-    circleY= -480
-  }
-
-
 
 //   let drumMap = map(drum, 0, 100, 5, 70);
 // let lengthofLine = 300;
@@ -315,10 +276,11 @@ if(song.currentTime() > 146) {
 
 //SECTION TWO:
 
+//sine wave that represents vocals turns off and on
 if(song.currentTime()>159 && song.currentTime()<162
 || song.currentTime()>165.2 && song.currentTime()<168.5
 || song.currentTime()>171.5 && song.currentTime()<174.5
-|| song.currentTime()>181.5 && song.currentTime()<184.5  ){
+|| song.currentTime()>181.2 && song.currentTime()<184.5  ){
   
   noFill()
   stroke(0)
@@ -336,6 +298,136 @@ if(song.currentTime()>159 && song.currentTime()<162
   endShape()
 }
 
+
+//sine wave that represents bass turns off and on
+if(song.currentTime()>146 && song.currentTime()<159
+|| song.currentTime()>162 && song.currentTime()<165.2
+|| song.currentTime()>168.5 && song.currentTime()<171.5
+|| song.currentTime()>174.5 && song.currentTime()<181.2  ){
+  
+//OTHER SHAPE
+  var otherSize = map(other, 0, 100, 0, height)
+  angleMode(DEGREES)
+  rectMode(CENTER)
+  
+  noFill()
+  stroke(110, 235, 103)
+  
+  for (var i = 0; i < 200; i++){
+  push()
+  
+  rotate(tan(frameCount + i *5) * 1)
+  
+  rect(0, 0, 2000 - i *10, otherSize*6, otherSize/2)
+  
+  pop()
+  }
+  
+
+
+  //BASS SHAPE
+  noFill()
+  stroke(199, 36, 24)
+  strokeWeight(3)
+
+  let bassWave = map(bass, 0, 100, 20, 250);
+  
+  let basswaveHeight = 300;
+  let basswaveFreq = bassWave*10;
+  
+  let bassYLoki = height-1080;
+  
+  
+  for(let i=-600; i< width; i++){
+    vertex(i, (bassYLoki-basswaveHeight*sin(basswaveFreq * i))-480)
+    }
+  endShape()
+
+
+
+//DRUM SHAPE
+let drumWave = map(drum, 0, 100, 20, 250);
+  
+let drumwaveHeight = 300;
+let drumwaveFreq = drumWave*5;
+
+let drumYLoki = height-1080;
+beginShape()
+stroke(255)
+for(let i=-600; i< width; i++){
+  circle(i, (drumYLoki-drumwaveHeight*sin(drumwaveFreq * i/10))+480, 40)
+  }
+endShape()
 }
 
+
+
+if (song.currentTime()>184.5  ){
+
+
+
+rotate(180)
+
+//drum - spooky circle
+var drumSize = map(drum, 0, 100, 0, height);
+angleMode(DEGREES);
+
+noFill();
+stroke(255);
+
+for (var i = 0; i < 200; i++){
+push();
+
+rotate(sin(frameCount + i *2) * 100);
+
+rect(0, 0, 600 - i * 3, drumSize, drumSize*2);
+
+pop();
+
+//UPSIDE DOWN LANDSCAPE
+angleMode(DEGREES)
+fill(mountC);
+noStroke()
+beginShape();
+  vertex(200, 100);
+  vertex(300, -10);
+  vertex(400, -20);
+  vertex(500, -40);
+  vertex(600, -80);
+  vertex(700, -100);
+  vertex(800, -150)
+  vertex(900, -200);
+  vertex(1000, -100)
+  vertex(1100, 750);
+  vertex(100, 150);
+endShape(CLOSE);
+
+
+//left mountain
+beginShape();
+  vertex(-100, 150);
+  vertex(-2200, 1080);
+  vertex(-2200, -200);
+  vertex(-1000, -200);
+  vertex(-800, -200)
+  vertex(-700, -150)
+  vertex(-600, -100)
+  vertex(-500, -10)
+  vertex(-400, -30)
+  vertex(-300, 50)
+  vertex(-200, 80);
+endShape(CLOSE)
+
+fill(pathC);
+quad(-100, 150,
+  100, 150,
+  1920, 750,
+  -2200, 1080);
+
+
+
+
+}
+}
+}
 
