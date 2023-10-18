@@ -1,6 +1,6 @@
 firstRun = true
 
-
+let circleX = -1080
 let trees = [];
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -14,6 +14,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     background(104, 142, 204)
    }
 
+
+//loading in tree image sequence
   if(firstRun){
     trees.push(loadImage('tree_1.png'));
     trees.push(loadImage('tree_2.png'));
@@ -22,26 +24,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     firstRun = false
     }
   
- 
 
-// noStroke()
-// var vocalSize = map(vocal, 0, 100, 0, height/2 )
-
-// fill(235, 234, 209)
-// square(width/5, height/3, vocalSize)
-
-// var bassSize = map(bass, 0, 100, 0, height/3 )
-
-// fill(219, 139, 33)
-// square(width/5, height/3, bassSize)
-
-// var drumSize = map(drum, 0, 100, 0, height/4 )
-
-// fill(140, 17, 17)
-// square(width/5, height/3, drumSize)
-
-// fill(255, 255, 0);
- 
 // display "words"
 textAlign(CENTER);
 textSize(vocal);
@@ -49,7 +32,6 @@ text(words, width/2, height/3);
 
 
 
-// strokeWeight(9)
 
 // let drumMap = map(drum, 0, 100, 5, 70);
 // let lengthofLine = 300;
@@ -59,7 +41,7 @@ text(words, width/2, height/3);
 
 // for(let i = 1; i<= drumMap; i++){
 //   let lineStep = i*20;
-//   circle(LineStart, lineStep, lineEnd, lineStep);
+//   rect(LineStart, lineStep, lineEnd, lineStep);
 // }
 
 noFill()
@@ -72,46 +54,18 @@ let vocYLoki = height/2;
 beginShape()
 for(let i=0; i< width; i++){
   vertex(i, vocYLoki-waveHeight*sin(waveFreq * i))
-
-}
+  }
 endShape()
 
 
-
-
-
-
-
-
-if(song.currentTime() > 26) {                  //when counter hits 27 seconds, circle appears (vocals)
-  noStroke()
+//when counter hits 27 seconds, circle appears (vocals)
+noStroke()
+if(song.currentTime() > 26) {
   var vocalSize = map(vocal, 0, 100, 0, height/2 )
   fill(235, 234, 209)
   circle(width/2, height/2, vocalSize)
 }
 
-// noStroke()
-//   var drumSize = map(drum, 0, 100, 0, height )
-//   fill(235, 234, 209)
-//   circle(100, 100, drumSize)
-
-//   circle(1820, 100, drumSize)
-
-//   circle(1820, 980, drumSize)
-
-//   circle(100, 980, drumSize)
-
-// fill(63, 153, 171)
-// rect(0, 630, 1920, 450)
-
-// fill(63, 153, 171)
-// rect(0, 0, 1920, 450)
-
-
-// quad(600, 0,
-//    1300, 0,
-//     1000, 450,
-//      960, 450)
 
 
 
@@ -144,14 +98,14 @@ rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
 pop()
 }
 
+
+//background lines that change colour - changes with bass
 var bassSize = map(bass, 0, 100, 0, height/2)
 angleMode(DEGREES)
 
-
-
 stroke(41, 177, 214) //light blue
 
-if(song.currentTime() >82 ){ 
+if(song.currentTime() >82 ){ //when song hits 82 seconds, colour change
   stroke(1, 5, 13)
 }
 if(song.currentTime()> 114){ //once chorus starts, switch to red
@@ -212,9 +166,6 @@ pop();
 // pop()
 // }
 
-//right mountain
-
-
 
 let mountC = 0
 
@@ -230,6 +181,7 @@ if(song.currentTime() >114){
   }
 
 
+  
 fill(mountC);
 noStroke()
 beginShape();
@@ -318,7 +270,6 @@ if(song.currentTime() > 25.6) {
   strokeWeight(3)
   stroke(255)
 
-
   for (var i = 0; i < 200; i++){
   push()
 
@@ -330,13 +281,17 @@ if(song.currentTime() > 25.6) {
   }
 }
 
+if(song.currentTime()>10){
+noStroke()
+var otherSize = map(other, 0, 100, 0, height )
+  fill(235, 234, 209);
+  circle(circleX, -500, otherSize/5);
+circleX = circleX +10;
 
-  
-
-
-
-
-
+if(circleX > 1080){
+  circleX = -1080
+  }
+}
 
 
 console.log(song.currentTime())
