@@ -35,18 +35,18 @@ text(words, width/2, height/3);
 
 
 
-noFill()
-let vocWave = map(vocal, 0, 100, 20, 250);
+// noFill()
+// let vocWave = map(vocal, 0, 100, 20, 250);
 
-let waveHeight = vocWave;
-let waveFreq = 8;
+// let waveHeight = vocWave;
+// let waveFreq = 8;
 
-let vocYLoki = height/2;
-beginShape()
-for(let i=0; i< width; i++){
-  vertex(i, vocYLoki-waveHeight*sin(waveFreq * i))
-  }
-endShape()
+// let vocYLoki = height/2;
+// beginShape()
+// for(let i=0; i< width; i++){
+//   vertex(i, vocYLoki-waveHeight*sin(waveFreq * i))
+//   }
+// endShape()
 
 
 //when counter hits 27 seconds, circle appears (vocals)
@@ -294,18 +294,48 @@ var otherSize = map(other, 0, 100, 0, height )
 
 
 
-  let drumMap = map(drum, 0, 100, 5, 70);
-let lengthofLine = 300;
-let LineStart = 100;
-let lineEnd = LineStart + lengthofLine;
-stroke(drumMap, 80, 80);
+//   let drumMap = map(drum, 0, 100, 5, 70);
+// let lengthofLine = 300;
+// let LineStart = 100;
+// let lineEnd = LineStart + lengthofLine;
+// stroke(drumMap, 80, 80);
 
-for(let i = 1; i<= drumMap; i++){
-  let lineStep = i*20;
-  circle(LineStart, lineStep, lineEnd, lineStep);
-}
+// for(let i = 1; i<= drumMap; i++){
+//   let lineStep = i*20;
+//   circle(LineStart, lineStep, lineEnd, lineStep);
+// }
 
 
 console.log(song.currentTime())
 
+if(song.currentTime() > 146) { 
+  clear()
+  background(104, 142, 204)
 }
+
+//SECTION TWO:
+
+if(song.currentTime()>159 && song.currentTime()<162
+|| song.currentTime()>165.2 && song.currentTime()<168.5
+|| song.currentTime()>171.5 && song.currentTime()<174.5
+|| song.currentTime()>181.5 && song.currentTime()<184.5  ){
+  
+  noFill()
+  stroke(0)
+
+  let vocWave = map(vocal, 0, 100, 20, 250);
+  
+  let waveHeight = 300;
+  let waveFreq = vocWave*5;
+  
+  let vocYLoki = height-1080;
+  beginShape()
+  for(let i=-1080; i< width; i++){
+    vertex(i, vocYLoki-waveHeight*sin(waveFreq * i))
+    }
+  endShape()
+}
+
+}
+
+
