@@ -200,8 +200,8 @@ if(song.currentTime() >114){
 fill(pathC);
 quad(-100, 150,
   100, 150,
-  1920, 750,
-  -2200, 1080);
+  1920, 2000,
+  -2200, 2000);
 
 /////////////////////////////////////////////
   
@@ -239,7 +239,7 @@ if(song.currentTime() > 25.6) {
 // if(song.currentTime()>10){
 noStroke()
 var otherSize = map(other, 0, 100, 0, height )
-  fill(235, 234, 209);
+  fill(240);
   circle(circleXArray[0], circleY, otherSize/5);
   circle(circleXArray[1], circleY, otherSize/5);
   circle(circleXArray[2], circleY, otherSize/5);
@@ -279,8 +279,9 @@ if(song.currentTime()>159 && song.currentTime()<162
 || song.currentTime()>171.5 && song.currentTime()<174.5
 || song.currentTime()>181.2 && song.currentTime()<184.5  ){
   
+  background(0)
   noFill()
-  stroke(0)
+  stroke(255)
 
   let vocWave = map(vocal, 0, 100, 20, 250);
   
@@ -300,8 +301,10 @@ if(song.currentTime()>159 && song.currentTime()<162
 if(song.currentTime()>146 && song.currentTime()<159
 || song.currentTime()>162 && song.currentTime()<165.2
 || song.currentTime()>168.5 && song.currentTime()<171.5
-|| song.currentTime()>174.5 && song.currentTime()<181.2  ){
+|| song.currentTime()>174.5 && song.currentTime()<181.2
+|| song.currentTime()>184.5 && song.currentTime()<188 ){
   
+  background(255)
 //OTHER SHAPE
   var otherSize = map(other, 0, 100, 0, height)
   angleMode(DEGREES)
@@ -351,7 +354,7 @@ let drumwaveFreq = drumWave*5;
 
 let drumYLoki = height-1080;
 beginShape()
-stroke(255)
+stroke(0)
 for(let i=-600; i< width; i++){
   circle(i, (drumYLoki-drumwaveHeight*sin(drumwaveFreq * i/10))+480, 40)
   }
@@ -360,9 +363,30 @@ endShape()
 
 
 //UPSIDE DOWN VERSION OF PREVIOUS SECTION
-if (song.currentTime()>187  ){
 
-rotate(180)
+
+if (song.currentTime()>188  ){
+
+if (song.currentTime()>191  ){
+
+  rotate(90)
+  
+}
+if (song.currentTime()>193  ){
+
+  rotate(90)
+ 
+}
+if (song.currentTime()>194  ){
+
+  rotate(90)
+  
+}
+if (song.currentTime()>195  ){
+
+  rotate(90)
+}
+background(199, 36, 24)
 
 //drum - spooky circle
 var drumSize = map(drum, 0, 100, 0, height);
@@ -370,7 +394,6 @@ angleMode(DEGREES);
 
 noFill();
 stroke(255);
-strokeWeight(3);
 
 for (var i = 0; i < 200; i++){
 push();
@@ -380,6 +403,7 @@ rotate(sin(frameCount + i *2) * 100);
 rect(0, 0, 600 - i * 3, drumSize, drumSize*2);
 
 pop();
+}
 
 //UPSIDE DOWN LANDSCAPE
 angleMode(DEGREES)
@@ -422,9 +446,8 @@ quad(-100, 150,
   -2200, 1080);
 
 
+}
 
+}
 
-}
-}
-}
 
