@@ -6,11 +6,11 @@ let trees = [];
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  
-
-  
+    
 console.log(song.currentTime());
+//////////////////////////////////////////////
 
+//background colour changes in section one
 
   background(104, 142, 204); //blue
 
@@ -21,6 +21,7 @@ console.log(song.currentTime());
     background(104, 142, 204); //blue
    }
 
+///////////////////////////////////////////////
 
 //loading in tree image sequence
   if(firstRun){
@@ -32,6 +33,10 @@ console.log(song.currentTime());
     }
   
 translate(width/2, height /2);
+
+////////////////////////////////////////////////////////
+
+//code for the lines that appear in the background behind the landscappe and drum
 
 var bassSize = map(bass, 0, 100, 0, 500);
 angleMode(DEGREES);
@@ -48,7 +53,6 @@ if(song.currentTime()> 114){ //once chorus starts, switch to red
 }
 
 
-
 for (var i = 0; i < 200; i++){
 push();
 
@@ -59,9 +63,9 @@ rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4);
 pop();
 }
 
-
+//I stacked two copies of the code on top of each other to create the look
+//below is the duplicate
 noFill();
-
 
 for (var i = 0; i < 200; i++){
 push();
@@ -166,6 +170,9 @@ quad(-100, 150,
   5000, 2000,
   -5000, 2000);
 
+
+
+
 /////////////////////////////////////////////
   
 
@@ -238,25 +245,26 @@ if(song.currentTime()>146 && song.currentTime()<159
 || song.currentTime()>184.5 && song.currentTime()<188 ){
   
   background(255);
-//OTHER SHAPE
+
+//'OTHER' SHAPE IN CENTER
   var otherSize = map(other, 0, 100, 0, height);
   angleMode(DEGREES);
   rectMode(CENTER);
   
   noFill();
-  stroke(110, 235, 103);
+  stroke(255, 202, 28);
   
   for (var i = 1; i < 100; i++){
-  push();
-  
-  rotate(tan(frameCount + i *5) * 1);
-  
-  rect(0, 0, 1000 - i *10, otherSize/20, otherSize/2);
-  
-  pop();
+    push();
+    
+    rotate(tan(frameCount + i *5) * 1);
+    
+    rect(0, 0, 1000 - i *10, otherSize/20, otherSize/2);
+    
+    pop();
   }
   
-  //BASS SHAPE
+  //BASS SHAPE (right)
   noFill();
   stroke(199, 36, 24);
   strokeWeight(3);
@@ -269,9 +277,7 @@ if(song.currentTime()>146 && song.currentTime()<159
   
   let basswaveHeight = 300;
   let basswaveFreq = bassWave*10;
-  
   let bassYLoki = height-1080;
-  
   
   for(let i=-600; i< width; i++){
     vertex(i, (bassYLoki-basswaveHeight*sin(basswaveFreq * i))-480);
@@ -280,19 +286,17 @@ if(song.currentTime()>146 && song.currentTime()<159
 
 
 
-//DRUM SHAPE
+//DRUM SHAPE (left)
 let drumWave = map(drum, 0, 100, 20, 250);
   
 let drumwaveHeight = 300;
 let drumwaveFreq = drumWave*5;
-
 let drumYLoki = height-1080;
 
 stroke(0)
 for(let i=-600; i< width; i++){
   circle(i, (drumYLoki-drumwaveHeight*sin(drumwaveFreq * i/10))+480, 40);
   }
-
 
 
 var otherSize = map(other, 0, 100, 0, height );
@@ -345,14 +349,14 @@ if (song.currentTime()>188  ){
   var drumSize = map(drum, 0, 100, 0, height);
 
   noFill();
-  stroke(255);
+  stroke(255, 202, 28);
 
   for (var i = 0; i < 200; i++){
   push();
   rotate(sin(frameCount + i *2) * 100);
   rect(0, 0, 600 - i * 3, drumSize, drumSize*2);
   pop();
-  
+
   }
 
   //UPSIDE DOWN LANDSCAPE
