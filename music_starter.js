@@ -113,7 +113,7 @@ rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
 pop()
 }
 
-
+////////////////////////////////////////////////////
 
 //drum - spooky circle
 var drumSize = map(drum, 0, 100, 0, height);
@@ -132,10 +132,11 @@ rect(0, 0, 600 - i * 3, drumSize, drumSize*2);
 pop();
 }
 
+/////////////////////////////////////////////////
 
 
-
-let mountC = 0;
+//The two mountains 
+let mountC = 50;
 
 if(song.currentTime() >82){
   push();
@@ -144,12 +145,12 @@ if(song.currentTime() >82){
 }
 if(song.currentTime() >114){
     push();
-    mountC = 0;
+    mountC = 50;
     pop();
   }
 
 
-  
+ //right mountain 
 fill(mountC);
 noStroke()
 beginShape();
@@ -183,11 +184,11 @@ beginShape();
 endShape(CLOSE)
 
 //pathway in center
-let pathC= 240
+let pathC= 240;
 
 if(song.currentTime() > 82){
   push();
-  pathC = 0;
+  pathC = 15, 13, 13;
   pop();
 }
 if(song.currentTime() >114){
@@ -202,14 +203,10 @@ quad(-100, 150,
   1920, 750,
   -2200, 1080);
 
-
+/////////////////////////////////////////////
   
 
- 
-
-
-
- //image sequence: trees
+//image sequence: trees
 var OtherFrame = int(map(vocal, 0, 100, 0, 3));
 console.log(OtherFrame);
 push();
@@ -313,12 +310,12 @@ if(song.currentTime()>146 && song.currentTime()<159
   noFill()
   stroke(110, 235, 103)
   
-  for (var i = 0; i < 200; i++){
+  for (var i = 1; i < 100; i++){
   push()
   
   rotate(tan(frameCount + i *5) * 1)
   
-  rect(0, 0, 2000 - i *10, otherSize*6, otherSize/2)
+  rect(0, 0, 1000 - i *10, otherSize/20, otherSize/2)
   
   pop()
   }
@@ -329,6 +326,7 @@ if(song.currentTime()>146 && song.currentTime()<159
   strokeWeight(3)
 
   rotate(90)
+  translate(-500, 0)
 
   let bassWave = map(bass, 0, 100, 20, 250);
   
@@ -362,7 +360,7 @@ endShape()
 
 
 //UPSIDE DOWN VERSION OF PREVIOUS SECTION
-if (song.currentTime()>184.5  ){
+if (song.currentTime()>187  ){
 
 rotate(180)
 
