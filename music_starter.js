@@ -200,8 +200,8 @@ if(song.currentTime() >114){
 fill(pathC);
 quad(-100, 150,
   100, 150,
-  1920, 2000,
-  -2200, 2000);
+  5000, 2000,
+  -5000, 2000);
 
 /////////////////////////////////////////////
   
@@ -377,12 +377,12 @@ if (song.currentTime()>193  ){
   rotate(90)
  
 }
-if (song.currentTime()>194  ){
+if (song.currentTime()>194.5  ){
 
   rotate(90)
   
 }
-if (song.currentTime()>195  ){
+if (song.currentTime()>196  ){
 
   rotate(90)
 }
@@ -442,8 +442,9 @@ endShape(CLOSE)
 fill(pathC);
 quad(-100, 150,
   100, 150,
-  1920, 750,
-  -2200, 1080);
+  5000, 2000,
+  -5000, 2000);
+
 
 
 }
