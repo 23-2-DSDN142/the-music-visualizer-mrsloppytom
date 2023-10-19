@@ -26,93 +26,37 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     }
   
 
-// display "words"
-textAlign(CENTER);
-textSize(vocal);
-text(words, width/2, height/3);
-
-
-
-
-
-// noFill()
-// let vocWave = map(vocal, 0, 100, 20, 250);
-
-// let waveHeight = vocWave;
-// let waveFreq = 8;
-
-// let vocYLoki = height/2;
-// beginShape()
-// for(let i=0; i< width; i++){
-//   vertex(i, vocYLoki-waveHeight*sin(waveFreq * i))
-//   }
-// endShape()
-
-
-//when counter hits 27 seconds, circle appears (vocals)
-noStroke()
-if(song.currentTime() > 26) {
-  var vocalSize = map(vocal, 0, 100, 0, height/2 )
-  fill(235, 234, 209)
-  circle(width/2, height/2, vocalSize)
-}
-
-
-
-
 translate(width/2, height /2);
 
 
 
 
-// var bassSize = map(bass, 0, 100, 0, height/2)
-// angleMode(DEGREES)
-// rectMode(CENTER)
-
-// noFill()
-// stroke(41, 177, 214) //light blue
-
-// if(song.currentTime() >82){
-//   stroke(1, 5, 13)
-// }
-// if(song.currentTime()> 114){
-//   stroke(199, 36, 24)
-// }
-
-// for (var i = 0; i < 200; i++){
-// push()
-
-// rotate(tan(frameCount + i *5) * 1)
-// rotate(90)
-// rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
-
-// pop()
-// }
-
-
-//background lines that change colour - changes with bass
-var bassSize = map(bass, 0, 100, 0, height/2)
+var bassSize = map(bass, 0, 100, 0, 500)
 angleMode(DEGREES)
 rectMode(CENTER)
 
+noFill()
 stroke(41, 177, 214) //light blue
 
-if(song.currentTime() >82 ){ //when song hits 82 seconds, colour change
+if(song.currentTime() >82){ //when song hits 82 seconds, colour change
   stroke(1, 5, 13)
 }
 if(song.currentTime()> 114){ //once chorus starts, switch to red
   stroke(199, 36, 24)
 }
 
-for (var i = 0; i < 500; i++){
+for (var i = 0; i < 200; i++){
 push()
 
-rotate(tan(frameCount + i ) *3)
+rotate(tan(frameCount + i *5) * 1)
+rotate(90)
+strokeWeight(5)
+circle(0, 0, i* bassSize/5)
 
-circle(0, 0, (i* bassSize)/10)
 
 pop()
 }
+
 
 ////////////////////////////////////////////////////
 
@@ -254,17 +198,6 @@ var otherSize = map(other, 0, 100, 0, height )
   circle(circleXArray[9], circleY, otherSize/5);
 
 
-//   let drumMap = map(drum, 0, 100, 5, 70);
-// let lengthofLine = 300;
-// let LineStart = 100;
-// let lineEnd = LineStart + lengthofLine;
-// stroke(drumMap, 80, 80);
-
-// for(let i = 1; i<= drumMap; i++){
-//   let lineStep = i*20;
-//   circle(LineStart, lineStep, lineEnd, lineStep);
-// }
-
 
 console.log(song.currentTime())
 
@@ -390,6 +323,7 @@ if (song.currentTime()>196  ){
 }
 background(199, 36, 24)
 
+
 //drum - spooky circle
 var drumSize = map(drum, 0, 100, 0, height);
 angleMode(DEGREES);
@@ -467,20 +401,6 @@ quad(-100, 150,
   }
 
 
-  var bassSize = map(bass, 0, 100, 0, height/2)
-angleMode(DEGREES)
-
-stroke(41, 177, 214) //light blue
-
-for (var i = 0; i < 200; i++){
-push()
-
-rotate(tan(frameCount + i *5) * 1)
-
-rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
-
-pop()
-}
 
 
 }
