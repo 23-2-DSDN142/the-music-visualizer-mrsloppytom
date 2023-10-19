@@ -65,34 +65,35 @@ translate(width/2, height /2);
 
 
 
-var bassSize = map(bass, 0, 100, 0, height/2)
-angleMode(DEGREES)
-rectMode(CENTER)
+// var bassSize = map(bass, 0, 100, 0, height/2)
+// angleMode(DEGREES)
+// rectMode(CENTER)
 
-noFill()
-stroke(41, 177, 214) //light blue
+// noFill()
+// stroke(41, 177, 214) //light blue
 
-if(song.currentTime() >82){
-  stroke(1, 5, 13)
-}
-if(song.currentTime()> 114){
-  stroke(199, 36, 24)
-}
+// if(song.currentTime() >82){
+//   stroke(1, 5, 13)
+// }
+// if(song.currentTime()> 114){
+//   stroke(199, 36, 24)
+// }
 
-for (var i = 0; i < 200; i++){
-push()
+// for (var i = 0; i < 200; i++){
+// push()
 
-rotate(tan(frameCount + i *5) * 1)
-rotate(90)
-rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
+// rotate(tan(frameCount + i *5) * 1)
+// rotate(90)
+// rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
 
-pop()
-}
+// pop()
+// }
 
 
 //background lines that change colour - changes with bass
 var bassSize = map(bass, 0, 100, 0, height/2)
 angleMode(DEGREES)
+rectMode(CENTER)
 
 stroke(41, 177, 214) //light blue
 
@@ -103,12 +104,12 @@ if(song.currentTime()> 114){ //once chorus starts, switch to red
   stroke(199, 36, 24)
 }
 
-for (var i = 0; i < 200; i++){
+for (var i = 0; i < 500; i++){
 push()
 
-rotate(tan(frameCount + i *5) * 1)
+rotate(tan(frameCount + i ) *3)
 
-rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
+circle(0, 0, (i* bassSize)/10)
 
 pop()
 }
@@ -118,6 +119,7 @@ pop()
 //drum - spooky circle
 var drumSize = map(drum, 0, 100, 0, height);
 angleMode(DEGREES);
+
 
 noFill();
 stroke(255);
@@ -445,6 +447,40 @@ quad(-100, 150,
   5000, 2000,
   -5000, 2000);
 
+
+//vocal circle
+ var vocalSize = map(vocal, 0, 100, 0, height)
+  angleMode(DEGREES)
+
+  noFill()
+  strokeWeight(3)
+  stroke(20)
+
+  for (var i = 0; i < 200; i++){
+  push()
+
+  rotate(sin(frameCount + i *2) * 10)
+
+  circle(0, 0, vocalSize/2* i )
+
+  pop()
+  }
+
+
+  var bassSize = map(bass, 0, 100, 0, height/2)
+angleMode(DEGREES)
+
+stroke(41, 177, 214) //light blue
+
+for (var i = 0; i < 200; i++){
+push()
+
+rotate(tan(frameCount + i *5) * 1)
+
+rect(0, 0, 2000 - i *10, bassSize*10, bassSize*4)
+
+pop()
+}
 
 
 }
