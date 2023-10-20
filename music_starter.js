@@ -1,7 +1,10 @@
 firstRun = true
 
+//code for circles (they come in during section two)
 let circleY = -480
 var circleXArray = [-900, -700, -500, -300, -100, 100, 300, 500, 700, 900 ];
+
+//code for trees 
 let trees = [];
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -101,16 +104,16 @@ pop();
 
 /////////////////////////////////////////////////
 
+//The two mountains and path
 
-//The two mountains 
 let mountC = 50;
 
-if(song.currentTime() >82){
+if(song.currentTime() >82){ //when time is 82s, mountains become white
   push();
   mountC = 240;
   pop();
 }
-if(song.currentTime() >114){
+if(song.currentTime() >114){ //when time is 114s, mountains back to black
     push();
     mountC = 50;
     pop();
@@ -151,14 +154,14 @@ beginShape();
 endShape(CLOSE)
 
 //pathway in center
-let pathC= 240;
+let pathC= 240; //white
 
-if(song.currentTime() > 82){
+if(song.currentTime() > 82){ //when time 82s, path goes black
   push();
   pathC = 15, 13, 13;
   pop();
 }
-if(song.currentTime() >114){
+if(song.currentTime() >114){ //when time 114s, path back to white
   push();
   pathC = 240;
   pop();
@@ -185,7 +188,7 @@ image(trees[OtherFrame], -960, -540);
 pop();
 
 
-//when counter hits 27 seconds, circle appears (vocals)
+//when counter hits 27 seconds, white rings appears (vocals)
 if(song.currentTime() > 25.6) {  
   
   var vocalSize = map(vocal, 0, 100, 0, height);
@@ -205,9 +208,10 @@ if(song.currentTime() > 25.6) {
   }
 }
 
-if(song.currentTime() > 146) { //clears whole canvas to make room for next section
+//clears whole canvas to make room for next section
+if(song.currentTime() > 146) {
   clear();
-  background(104, 142, 204);
+  background(104, 142, 204); //blue
 }
 
 //////////////////////////////////////////////////////////
@@ -236,7 +240,6 @@ if(song.currentTime()>159 && song.currentTime()<162
   endShape();
 }
 
-
 //sine wave that represents instruments turns off and on
 if(song.currentTime()>146 && song.currentTime()<159
 || song.currentTime()>162 && song.currentTime()<165.2
@@ -252,7 +255,7 @@ if(song.currentTime()>146 && song.currentTime()<159
   rectMode(CENTER);
   
   noFill();
-  stroke(255, 202, 28);
+  stroke(255, 202, 28); //bright yellow
   
   for (var i = 1; i < 100; i++){
     push();
@@ -266,7 +269,7 @@ if(song.currentTime()>146 && song.currentTime()<159
   
   //BASS SHAPE (right)
   noFill();
-  stroke(199, 36, 24);
+  stroke(199, 36, 24); //red
   strokeWeight(3);
 
   rotate(90);
@@ -288,7 +291,7 @@ if(song.currentTime()>146 && song.currentTime()<159
 
 //DRUM SHAPE (left)
 let drumWave = map(drum, 0, 100, 20, 250);
-  
+
 let drumwaveHeight = 300;
 let drumwaveFreq = drumWave*5;
 let drumYLoki = height-1080;
@@ -298,7 +301,7 @@ for(let i=-600; i< width; i++){
   circle(i, (drumYLoki-drumwaveHeight*sin(drumwaveFreq * i/10))+480, 40);
   }
 
-
+//circles on top of bass wave
 var otherSize = map(other, 0, 100, 0, height );
   fill(240);
   noStroke();
@@ -319,7 +322,7 @@ var otherSize = map(other, 0, 100, 0, height );
 
 /////////////////////////////////////////////////
 
-//UPSIDE DOWN VERSION OF EARLIER SECTION
+// FINAL SECTION: UPSIDE DOWN VERSION OF EARLIER SECTION
 
 
 if (song.currentTime()>188  ){
@@ -395,7 +398,8 @@ if (song.currentTime()>188  ){
     vertex(-200, 80);
   endShape(CLOSE)
 
-  fill(pathC);
+  //path in the middle
+  fill(pathC); 
   quad(-100, 150,
     100, 150,
     5000, 2000,
@@ -420,11 +424,6 @@ if (song.currentTime()>188  ){
   pop()
   }
 
-
-
-
-}
+} 
 
 }
-
-
