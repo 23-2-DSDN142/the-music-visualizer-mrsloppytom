@@ -43,10 +43,10 @@ angleMode(DEGREES);
 rectMode(CENTER);
 
 noFill();
-stroke(199, 36, 24); //light blue
+stroke(255, 202, 28); //yellow
 
 if(song.currentTime() >82){ //when song hits 82 seconds, colour change
-  stroke(1, 5, 13);
+  stroke(1, 5, 13); //black
 }
 if(song.currentTime()> 114){ //once chorus starts, switch to red
   stroke(199, 36, 24);
@@ -205,12 +205,12 @@ if(song.currentTime() > 25.6) {
   }
 }
 
-
-if(song.currentTime() > 146) { 
+if(song.currentTime() > 146) { //clears whole canvas to make room for next section
   clear();
   background(104, 142, 204);
 }
 
+//////////////////////////////////////////////////////////
 //SECTION TWO:
 
 //sine wave that represents vocals turns off and on
@@ -317,6 +317,8 @@ var otherSize = map(other, 0, 100, 0, height );
 }
 
 
+/////////////////////////////////////////////////
+
 //UPSIDE DOWN VERSION OF EARLIER SECTION
 
 
@@ -330,16 +332,16 @@ if (song.currentTime()>188  ){
   rotate(90);
   }
   if (song.currentTime()>193  ){
-    background(245, 236, 235); //when time hits 193s, BG turns whitish
+    background(199, 36, 24); //when time hits 193s, BG turns red
     rotate(90);
   }
 
   if (song.currentTime()>194.5  ){
-    background(199, 36, 24); //when time hits 194.5s, BG turns red
+    background(104, 142, 204); //when time hits 194.5s, BG turns blue
     rotate(90);
   }
   if (song.currentTime()>196  ){
-    background(104, 142, 204); // when time hits 196s, BG turns blue
+    background(199, 36, 24); // when time hits 196s, BG turns red
     rotate(90);    //restored to original rotation
   }
 
